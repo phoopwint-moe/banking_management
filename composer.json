@@ -1,0 +1,16 @@
+{
+  "name": "mozart/banking_management",
+  "authors": [
+    {
+      "name": "Mozart-liv",
+      "email": "maishuvera@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Libs\\": "classes/Libs/",
+      "Helpers\\": "classes/Helpers/"
+    }
+  }
+}
