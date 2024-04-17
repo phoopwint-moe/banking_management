@@ -1,14 +1,12 @@
-<?php 
+<?php
+
 include './vendor/autoload.php';
 
-include './classes/Libs/Database/seeders/DataSeeding.php';
-
 use Helpers\Auth;
-use Helpers\HTTP;
 
-if(Auth::check()){
-    HTTP::redirect('views/home.php');
-}
+
+Auth::check();
+
 ?>
 
 <!DOCTYPE html>
@@ -17,53 +15,63 @@ if(Auth::check()){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css//bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <div class="position-relative" id="home">
-        <img src="./images//background.jpg" alt="" class="w-100 opacity-50 object-fit-cover" style="height: 100vh;" >
-
-        <div class="card position-absolute top-50 start-50 translate-middle bg-dark bg-opacity-50 col-md-4">
-            <form action="./actions/login.php" method="post" class="my-3 px-5">
-                <h3 class="text-center text-white my-4">Login</h3>
-                <?php if(isset($_GET['register'])):?>
-                    <div class="alert alert-success align-items-center" role="alert">        
-                    <div>
-                       successfully created! login please...
-                    </div>
-                </div>
-                <?php endif ?>
-
-                <?php if(isset($_GET['error'])):?>
-                    <div class="alert alert-danger align-items-center" role="alert">        
-                    <div>
-                       Something is incorrect! try again ..
-                    </div>
-                </div>
-                <?php endif ?>
-
-                 <div class="my-4 ">
-                    <input type="email" class="form-control bg-white bg-opacity-25 rounded-pill px-4" name="email" placeholder="Enter your email...">
-                </div>
-                <div class="mb-4">
-                    <input type="password" class="form-control bg-white bg-opacity-25 rounded-pill px-4" name="password" placeholder="Enter your password...">
-                </div>
-                
-                <div class="text-center">
-                    <button type="submit" class="btn btn-light col-9 rounded-pill">Login</button>
-                </div>
-
-                <div class="text-center mt-3">
-                    <span class="text-light">Don't have an account?</span>
-                    <b> <a href="./views/register.php" class="text-light">Register</a></b>
-                   
-                </div>
-            </form>
-        </div>
+    
+    <nav class="navbar navbar-expand-lg bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Martzo Banking</a>
+    
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto me-5 mb-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-house me-2"></i>General
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">State List</a></li>
+            <li><a class="dropdown-item" href="#">Township List</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           <i class="fa-regular fa-user me-2"></i> Users & Accounts
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">User List</a></li>
+            <li><a class="dropdown-item" href="#">Account List</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-credit-card me-2"></i>Transaction
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Transfer</a></li>
+            <li><a class="dropdown-item" href="#">Withdraw</a></li>
+            <li><a class="dropdown-item" href="#">Deposit</a></li>
+          </ul>
+        </li>
+        <li class="nav-item d-flex">
+          <a class="nav-link " href="#"><i class="fa-solid fa-info me-2"></i>History</a>
+        </li>
+      </ul>
+     
     </div>
+        <li class="nav-item d-flex ">
+          <a class="nav-link " href="./actions/logout.php"><i class="fa-solid fa-door-open me-2"></i>Logout</a>
+        </li>
 
-    <!-- <form action="" method="post">
-        <button type="submit" name="register" class="btn btn-success">Click to register</button>
-    </form> -->
+  </div>
+</nav>
+    <div class="position-relative" id="home">
+        <img src="./images/background.jpg" alt="" class="w-100 opacity-50 object-fit-cover" style="height: 95vh;" >
+
+        <h1 class="position-absolute top-50 start-50 translate-middle" style="font-size: 90px;">Welcome from Martzo Banking</h1>
+    </div>
 </body>
+<script src="./js//bootstrap.bundle.min.js"></script>
 </html>

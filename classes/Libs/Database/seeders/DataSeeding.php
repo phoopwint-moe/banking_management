@@ -1,5 +1,5 @@
 <?php
-include './vendor/autoload.php';
+include '../vendor/autoload.php';
 
 use Libs\Database\StateTable;
 use Libs\Database\TownshipTable;

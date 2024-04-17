@@ -15,7 +15,7 @@ $user = $table->check($_POST['email'], md5($_POST['password']));
 
 
 if(count($user) == 0){
-  HTTP::redirect('index.php', 'error=true');
+  HTTP::redirect('views/login.php', 'error=true');
 }else{
     $_SESSION['user'] = $user[0];
 
@@ -23,7 +23,7 @@ if(count($user) == 0){
 
     $_SESSION['login'] = true;
 
-    HTTP::redirect('views/home.php');
+    HTTP::redirect('index.php');
 }
 
 
