@@ -22,13 +22,14 @@ include '../vendor/autoload.php';
     <?php include './header.php'?>
 
    <div class="container my-5">
-     <table id="townshipTable" class="display">
+    <h1 class="mb-5">Township List</h1>
+     <table id="townshipTable" class="display border">
     <thead>
         <tr>
-            <th class="text-center">id</th>
-            <th class="text-center">Township Code</th>
-            <th class="text-center">Township Name</th>
-            <th class="text-center">State Code</th>
+            <th class="text-center">ID</th>
+            <th class="text-center">TOWNSHIP CODE</th>
+            <th class="text-center">TOWNSHIP NAME</th>
+            <th class="text-center">STATE CODE</th>
           
         </tr>
     </thead>

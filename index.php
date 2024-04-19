@@ -1,8 +1,10 @@
 <?php
 
 include './vendor/autoload.php';
+include './classes/Libs/Database/seeders/DataSeeding.php';
 
 use Helpers\Auth;
+
 
 
 Auth::check();
