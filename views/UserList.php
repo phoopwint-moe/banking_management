@@ -17,7 +17,7 @@ include '../vendor/autoload.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User List</title>
     
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 </head>
 <body>
     <?php include './header.php'?>
@@ -25,7 +25,30 @@ include '../vendor/autoload.php';
    <div class="container my-5">
     <h1 class="mb-5">User List</h1>
 
-    <button class="btn btn-success mb-5  col-3 ">Add User</button>
+    <div class="row">
+    <a href="./createUserPage.php" class="btn btn-success mb-5 col-3 ">Add User</a>
+    <?php if(isset($_GET['success'])):?>
+        <div class="alert alert-success alert-dismissible fade show col-3 offset-6 " role="alert">
+        User created success!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php endif?>
+
+    <?php if(isset($_GET['updateSuccess'])):?>
+        <div class="alert alert-success alert-dismissible fade show col-3 offset-6 " role="alert">
+        User updated success!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php endif?>
+
+    <?php if(isset($_GET['deleteSuccess'])):?>
+        <div class="alert alert-danger alert-dismissible fade show col-3 offset-6 " role="alert">
+        User deleted success!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php endif?>
+    </div>
+    
      <table id="userTable" class="display border">
     <thead>
         <tr>
@@ -52,8 +75,8 @@ include '../vendor/autoload.php';
             <td class="text-center "><?php echo $user->state_code?></td>
             <td class="text-center "><?php echo $user->township_code?></td>
             <td class="text-center">
-                <a href="#" class="text-secondary me-2"><i class="fa-solid fa-pencil"></i></a>
-                <a href="#" class="text-danger"><i class="fa-solid fa-trash-can"></i></a>
+                <a href="./updateUserPage.php?id=<?php echo $user->id?>" class="text-secondary me-2"><i class="fa-solid fa-pencil"></i></a>
+                <a href="../actions/deleteUser.php?delete=<?php echo $user->id?>" class="text-danger" ><i class="fa-solid fa-trash-can"></i></a>
             </td>
         </tr>
         <?php }?>

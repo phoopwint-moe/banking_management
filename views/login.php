@@ -50,7 +50,7 @@ include '../classes/Libs/Database/seeders/DataSeeding.php';
 
                 <div class="text-center mt-3">
                     <span class="text-light">Don't have an account?</span>
-                    <b> <a href="./views/register.php" class="text-light">Register</a></b>
+                    <b> <a href="./register.php" class="text-light">Register</a></b>
                    
                 </div>
             </form>

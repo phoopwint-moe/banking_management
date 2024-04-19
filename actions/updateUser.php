@@ -10,7 +10,6 @@ $table = new UserTable(new Mysql());
 $count = count($table->getList());
 
 $data = [
-    'user_code' => 'UR0000' . $count+1,
     'name' => $_POST['name'],
     'phone' => $_POST['phone'],
     'email' => $_POST['email'],
@@ -19,9 +18,9 @@ $data = [
     'township_code' => $_POST['township_code']
 ];
 
-if($table->createUser($data)){
-         HTTP::redirect('views/UserList.php', 'success=true');
+if($table->updateUser($data, $_POST['id'])){
+         HTTP::redirect('views/UserList.php', 'updateSuccess=true');
     }else{
-    HTTP::redirect('views/createUserPage.php', 'error=true');
+    HTTP::redirect('views/updateUserPage.php', 'error=true');
 
     }
